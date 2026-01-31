@@ -3,6 +3,7 @@ uvicorn server:app --reload
 
 # 启动 Locust 压力测试：
 locust -f client.py
+locust --host=http://localhost:8000 -f client.py # UserBehavior 定义没有host的话
 
 
 # 打开 Locust Web 界面：

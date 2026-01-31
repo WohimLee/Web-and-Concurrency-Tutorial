@@ -1,10 +1,8 @@
 
-_db_client = None
+_llm_client = None
 
-
-def set_models(m):
-    global _models
-    _models = m
-
-def get_models():
-    return _models
+def get_llm_client():
+    global _llm_client
+    if _llm_client is None:
+        _llm_client = ""
+    return _llm_client

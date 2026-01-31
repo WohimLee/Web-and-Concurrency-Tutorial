@@ -66,3 +66,12 @@ async def process_item(task_id: str):
     loop = asyncio.get_event_loop()
     loop.run_in_executor(executor, long_task, task_id)
     return {"message": f"Task {task_id} is being processed in the background."}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    # "path" 是模块所在的目录或包。
+    # "main" 是模块的名字（文件名）。
+    # "app" 是 FastAPI 实例的名称（你在代码中定义的 FastAPI() 实例）。
+    # uvicorn.run("path/main:app", host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
