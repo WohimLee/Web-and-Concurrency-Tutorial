@@ -2,7 +2,10 @@ import multiprocessing as mp
 import os
 import time
 
-
+'''
+multiprocessing
+Python 内部创建并管理子进程执行函数
+'''
 def child_task() -> None:
     print(f"[child] pid={os.getpid()} ppid={os.getppid()}")
     time.sleep(1)
