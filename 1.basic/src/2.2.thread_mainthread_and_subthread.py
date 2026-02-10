@@ -3,15 +3,16 @@ import random
 import threading
 
 
-def mimic_llm(prompt):
+def mimic_llm(prompt: str):
+    current = threading.current_thread()
+    print(f"[{prompt}] start, thread_name={current.name}, thread_id={threading.get_ident()}")
 
-    print(f"{prompt}thread_id: ", threading.get_ident())   # 这个循环所在线程
-
-    print(f"{prompt}Call LLM, prompt=", prompt)
     for i in range(5):
-        process_duration = random.uniform(0, 1.5)
-        print(f"{prompt} Heartbeat tick={i}...")
+        process_duration = random.uniform(0.2, 1.0)
+        print(f"[{prompt}]. Heartbeat tick={i}, sleep={process_duration:.2f}s")
         time.sleep(process_duration)
+
+    print(f"[{prompt}] done")
 
 
 def run_loops():

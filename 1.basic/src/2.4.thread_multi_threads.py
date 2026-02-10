@@ -9,7 +9,7 @@ def mimic_llm(prompt: str):
 
     for i in range(5):
         process_duration = random.uniform(0.2, 1.0)
-        print(f"[{prompt}] heartbeat tick={i}, sleep={process_duration:.2f}s")
+        print(f"[{prompt}]. Heartbeat tick={i}, sleep={process_duration:.2f}s")
         time.sleep(process_duration)
 
     print(f"[{prompt}] done")
