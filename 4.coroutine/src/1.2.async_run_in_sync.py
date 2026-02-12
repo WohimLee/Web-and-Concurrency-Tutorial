@@ -3,17 +3,7 @@ import random
 import asyncio
 import threading
 
-
-def print_identity(identifier):
-    print()
-
-    current = threading.current_thread()
-    print(
-        "[{}] start, thread_name={}, thread_id={}".format(
-            identifier, current.name, threading.get_ident()
-        )
-    )
-
+from utils import print_identity
 
 async def mimic_llm(prompt: str):
     

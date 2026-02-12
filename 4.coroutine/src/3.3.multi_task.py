@@ -3,9 +3,12 @@ import random
 import asyncio
 
 
+from utils import print_identity
+
+
 async def mimic_llm(task_id: str) -> str:
     
-    print(f"Task: {task_id} start.")
+    print_identity(identifier=task_id)
 
     print("Calling LLM...")
     process_duration = random.uniform(2, 5)
@@ -15,13 +18,6 @@ async def mimic_llm(task_id: str) -> str:
     return f"dummy llm results for {task_id}"
 
 
-async def single_task() -> None:
-    start = time.perf_counter()
-    task_id = "task-888"
-    result  = await mimic_llm(task_id=task_id)
-    elapsed = time.perf_counter() - start
-
-    print(f"Task: {task_id}. Result: {result}. Elapsed={elapsed:.2f}s")
 
 
 async def multi_tasks() -> None:
@@ -34,5 +30,5 @@ async def multi_tasks() -> None:
 
 
 if __name__ == "__main__":
-    # asyncio.run(single_task())
+
     asyncio.run(multi_tasks())

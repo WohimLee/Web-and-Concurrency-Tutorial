@@ -1,18 +1,8 @@
-import time
+
 import random
 import asyncio
-import threading
 
-def print_identity(identifier):
-    print()
-
-    current = threading.current_thread()
-    print(
-        "[{}] start, thread_name={}, thread_id={}".format(
-            identifier, current.name, threading.get_ident()
-        )
-    )
-
+from utils import print_identity
 
 async def mimic_llm(prompt: str):
     print_identity(identifier=prompt)
@@ -25,7 +15,7 @@ async def mimic_llm(prompt: str):
 async def main():
 
     print_identity(identifier="run_coroutine")
-    await mimic_llm("First coroutine.")
+    asyncio.create_task(mimic_llm("First coroutine."))
 
 
 if __name__ == "__main__":
