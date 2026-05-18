@@ -19,7 +19,6 @@ async def mimic_llm(task_id: str) -> str:
 
 
 
-
 async def multi_tasks() -> None:
     start = time.perf_counter()
     tasks = [asyncio.create_task(mimic_llm(f"task-{i}")) for i in range(1, 6)]
